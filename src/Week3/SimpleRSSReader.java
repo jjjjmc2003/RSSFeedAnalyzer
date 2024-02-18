@@ -5,6 +5,7 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.HashSet;
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -52,6 +53,24 @@ public class SimpleRSSReader {
 
 
 //TODO 4: Maybe --ADD YOUR OWN CALCS HERE
+                    String input = description;
+                    String[] words = input.split("\\s+");
+                    HashSet<String> original = new HashSet<>();
+                    HashSet<String> duplicates = new HashSet<>();
+
+                    for (String word : words) {
+                        if (!original.add(word)) {
+                            duplicates.add(word);
+                        }
+                    }
+
+                    System.out.println("Duplicate word(s):");
+                    for (String duplicate_word : duplicates) {
+                        System.out.println(duplicate_word);
+                    }
+
+
+
 
 //
 //TODO 5: DISPLAY A LINE BREAK ie: "-----"
