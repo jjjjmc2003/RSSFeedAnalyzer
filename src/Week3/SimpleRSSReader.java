@@ -43,13 +43,17 @@ public class SimpleRSSReader {
 // Extract the description from the current item
                     String description = eElement.getElementsByTagName("description").item(0).getTextContent();
 
-//TODO 2: DISPLAY the title
-                    System.out.println(title);
-//TODO 3: DISPLAY the description
-                    System.out.println(description);
-//TODO 3: CALCULATE and DISPLAY the length of the description text
-                    int length = description.length();
-                    System.out.println("Length: " + length);
+//TODO 2: DISPLAYS TITLE DESCRIPTION AND DESCRIPTION LENGTH ENCAPSULATION IS COOL
+                    NewsItem newsItem = new NewsItem(node);
+
+                    newsItem.displayDetails();
+
+                    NewsItemWithImage newsItemWithImage = new NewsItemWithImage(node, title, description, null);
+
+                    newsItemWithImage.showImage();
+
+
+
 
 
 //TODO 4: Maybe --ADD YOUR OWN CALCS HERE
